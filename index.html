@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. ArulMurugan - Senior Software Architect</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+            line-height: 1.5;
+            padding: 30px 20px;
+        }
+
+        /* CV Container */
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #008080 0%, #006666 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info span:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            background: white;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #008080;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #00808020;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #008080;
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #008080;
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+
+        /* Technical Competencies Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,128,128,0.1);
+        }
+
+        .skill-category h3 {
+            color: #008080;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.2em;
+            color: #008080;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #008080;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid #00808030;
+        }
+
+        /* Experience Cards */
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 10px 30px rgba(0,128,128,0.15);
+            border-color: #00808040;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .exp-company {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .exp-company i {
+            font-size: 1.5em;
+            color: #008080;
+            background: white;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .exp-company-info h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .exp-company-info .role {
+            color: #008080;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .exp-date {
+            background: #008080;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+
+        .exp-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            margin: 10px 0 15px;
+            font-size: 0.95em;
+        }
+
+        .exp-details {
+            list-style: none;
+        }
+
+        .exp-details li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .exp-details li:before {
+            content: "▹";
+            color: #008080;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,128,128,0.15);
+            border-color: #008080;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .project-header h3 {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .project-header .project-date {
+            color: #008080;
+            font-weight: 600;
+            font-size: 0.85em;
+            padding: 4px 12px;
+            background: #00808010;
+            border-radius: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .project-tech span {
+            background: white;
+            color: #008080;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            border: 1px solid #00808030;
+        }
+
+        /* Hackathon Section */
+        .hackathon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .hackathon-item {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #00808030;
+        }
+
+        /* Metrics Bar */
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-box {
+            background: linear-gradient(135deg, #008080 0%, #006666 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,128,128,0.4);
+        }
+
+        .metric-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        /* Education & Professional Development */
+        .education-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .edu-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .cert-list li:before {
+            content: "✓";
+            color: #008080;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .exp-company {
+                width: 100%;
+            }
+
+            .exp-date {
+                align-self: flex-start;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                background: #008080;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .metric-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>K. ARULMURUGAN</h1>
+            <h2>SENIOR SOFTWARE ARCHITECT</h2>
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+                <span><i class="fas fa-phone-alt"></i> +91-9742413000</span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:arulmurugan.arch8@gmail.com">arulmurugan.arch8@gmail.com</a></span>
+                <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/k-arulmurugan" target="_blank">/k-arulmurugan</a></span>
+                <span><i class="fab fa-github"></i> <a href="https://github.com/iamAK081" target="_blank">/iamAK081</a></span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Executive Summary -->
+            <div class="section">
+                <h2 class="section-title">EXECUTIVE SUMMARY</h2>
+                <div class="executive-summary">
+                    <p>Software Architect with <strong>17+ years</strong> of enterprise experience architecting and delivering mission-critical systems across Life Sciences, Industrial Automation, Rail, and Telecom domains. <strong>13+ years</strong> of specialized C++ development expertise spanning from embedded systems to enterprise applications. Expert in modern C++ (11/14/17) and system modernization with proven success in refactoring 250K+ lines of legacy code, achieving <strong>90% memory leak reduction</strong> and <strong>40% performance improvement</strong>. Distinguished track record of leading high-impact initiatives in pharmaceutical regulatory compliance, industrial control systems, and AI-driven predictive analytics. Passionate about technical mentorship, architectural innovation, and delivering scalable enterprise solutions.</p>
+                </div>
+            </div>
+
+            <!-- Technical Competencies -->
+            <div class="section">
+                <h2 class="section-title">TECHNICAL COMPETENCIES</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C++11/14/17 (13+ Yrs)</span>
+                            <span class="skill-tag">Python (Basic)</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">C# (Intermediate)</span>
+                            <span class="skill-tag">Java (Intermediate)</span>
+                            <span class="skill-tag">JavaScript/HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cubes"></i> Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">gRPC/Protobuf</span>
+                            <span class="skill-tag">Boost</span>
+                            <span class="skill-tag">STL</span>
+                            <span class="skill-tag">Qt</span>
+                            <span class="skill-tag">MFC</span>
+                            <span class="skill-tag">gTest/gMock</span>
+                            <span class="skill-tag">WPF/.NET</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microchip"></i> System Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Multi-threading</span>
+                            <span class="skill-tag">IPC</span>
+                            <span class="skill-tag">Design Patterns</span>
+                            <span class="skill-tag">Socket Programming</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                            <span class="skill-tag">System Modernization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS (EC2/S3/Lambda/Bedrock)</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Jenkins</span>
+                            <span class="skill-tag">Conan</span>
+                            <span class="skill-tag">Git/Bitbucket</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Databases</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Oracle</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Tools & IDEs</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Visual Studio (2010-2022)</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">WinDBG</span>
+                            <span class="skill-tag">CMake</span>
+                            <span class="skill-tag">JIRA</span>
+                            <span class="skill-tag">Confluence</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-industry"></i> Domain Expertise</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Life Sciences (HL7/E2B)</span>
+                            <span class="skill-tag">Industrial Automation</span>
+                            <span class="skill-tag">Rail Systems</span>
+                            <span class="skill-tag">Telecom</span>
+                            <span class="skill-tag">IIoT</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Windows (Expert)</span>
+                            <span class="skill-tag">Linux/Ubuntu (Advanced)</span>
+                            <span class="skill-tag">Embedded (Targoa OS, WinCE)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="section">
+                <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+                
+                <!-- Epiroc -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-hard-hat"></i>
+                            <div class="exp-company-info">
+                                <h3>Epiroc Mining India</h3>
+                                <div class="role">Software Architect</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Sep 2025 - Present</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Leading architecture and development of Machine Identification Module (MIM) for industrial automation systems, designing centralized configuration management platform using C++17 and gRPC for control master controllers</li>
+                        <li>Implementing automatic device registration and zero-touch deployment processes, reducing system commissioning time by 50% through automated workflows</li>
+                        <li>Establishing enterprise coding standards, design patterns, and code review processes for automation engineering team while mentoring junior engineers on modern C++ practices</li>
+                        <li>Driving technical decisions for distributed systems architecture with Protocol Buffers serialization, ensuring scalability for 1000+ concurrent device connections</li>
+                    </ul>
+                </div>
+
+                <!-- ArisGlobal - Senior Principal -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-flask"></i>
+                            <div class="exp-company-info">
+                                <h3>ArisGlobal Pvt. Ltd.</h3>
+                                <div class="role">Senior Principal Software Engineer</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Feb 2019 - Sep 2025</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Led enterprise modernization initiative refactoring 250K+ lines of legacy C++98 code to modern C++17, achieving 90% memory leak reduction and 40% performance improvement</li>
+                        <li>Architected high-performance pharmaceutical applications for FDA/EMA regulatory compliance, serving 20+ global pharmaceutical companies with mission-critical safety systems</li>
+                        <li>Designed Flexi XML Import/Export modules processing 1M+ transactions daily, streamlining data exchange between pharmaceutical systems and regulatory agencies</li>
+                        <li>Built OAuth-based secure mail exchange system enhancing communication security between stakeholders across 15+ enterprise clients</li>
+                        <li>Established comprehensive unit testing strategy with Google Test, increasing code coverage from 40% to 85%+ and reducing production defects by 70%</li>
+                        <li>Implemented CI/CD pipelines using Jenkins and Docker, reducing deployment time from 4 hours to 30 minutes and enabling continuous delivery</li>
+                        <li>Provided technical leadership and mentorship to 6-member development team, conducting architecture reviews and establishing technical standards</li>
+                    </ul>
+                </div>
+
+                <!-- ABB -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-bolt"></i>
+                            <div class="exp-company-info">
+                                <h3>ABB India</h3>
+                                <div class="role">R&D Engineer</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Oct 2017 - Feb 2019</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Developed function code for industrial power automation systems using Symphony Plus Engineering platform, deployed across 50+ power plants globally</li>
+                        <li>Enhanced control algorithms through comprehensive unit testing with gTest, reducing software defects by 60% and improving system reliability</li>
+                        <li>Led Turbine Predictive Analysis initiative achieving 92% accuracy in failure prediction, enabling predictive maintenance and reducing unplanned downtime</li>
+                        <li>Optimized system performance through profiling and code optimization techniques, achieving 35% throughput improvement in critical control loops</li>
+                    </ul>
+                </div>
+
+                <!-- ArisGlobal - Technical Lead -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-flask"></i>
+                            <div class="exp-company-info">
+                                <h3>ArisGlobal Pvt. Ltd.</h3>
+                                <div class="role">Technical Lead</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Jun 2010 - Sep 2017</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Led product development for Pharmacovigilance & Drug Safety applications ensuring ICH ICSR E2B compliance, serving 15+ Fortune 500 pharmaceutical clients</li>
+                        <li>Managed migration of ESM Server from 32-bit to 64-bit architecture, improving system performance by 35% and enabling future scalability</li>
+                        <li>Designed data conversion system for R3 to R2 transformation, processing 500K+ records with 100% data integrity</li>
+                        <li>Successfully delivered EV Validation 7.2 project ahead of schedule for major pharmaceutical clients, managing requirements analysis and technical solution design</li>
+                        <li>Conducted technical reviews and provided architectural guidance to 8-member development team</li>
+                    </ul>
+                </div>
+
+                <!-- Winfoware -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-laptop-code"></i>
+                            <div class="exp-company-info">
+                                <h3>Winfoware Technologies (Client: Motorola India)</h3>
+                                <div class="role">Software Engineer</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Dec 2009 - May 2010</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Designed and implemented AEON GUI application for email synchronization during laptop standby, enabling continuous email access for enterprise users</li>
+                        <li>Developed communication modules between AEON application and AT commands for data card integration, ensuring reliable mobile connectivity</li>
+                        <li>Performed comprehensive unit and integration testing while collaborating with cross-functional teams for requirement analysis</li>
+                    </ul>
+                </div>
+
+                <!-- GE -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <i class="fas fa-train"></i>
+                            <div class="exp-company-info">
+                                <h3>General Electric</h3>
+                                <div class="role">Engineer</div>
+                            </div>
+                        </div>
+                        <div class="exp-date">Jan 2007 - Mar 2009</div>
+                    </div>
+                    <div class="exp-location"><i class="fas fa-map-pin"></i> Bangalore, India</div>
+                    <ul class="exp-details">
+                        <li>Developed CCA Simulator using C++ and MFC for Trip Optimizer Application validation, reducing testing time by 40% through automated simulation</li>
+                        <li>Created C++ Parser tools for configuration and data validation in rail systems, ensuring data integrity across 1000+ configuration files</li>
+                        <li>Designed and executed test cases for system integration, contributing to software validation processes and quality assurance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-container">
+                <div class="metric-box">
+                    <div class="metric-number">17+</div>
+                    <div class="metric-label">Years Experience</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">13+</div>
+                    <div class="metric-label">Years C++</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">250K+</div>
+                    <div class="metric-label">Lines Refactored</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">90%</div>
+                    <div class="metric-label">Memory Leak Reduction</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">85%+</div>
+                    <div class="metric-label">Code Coverage</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">2</div>
+                    <div class="metric-label">Hackathons</div>
+                </div>
+            </div>
+
+            <!-- Key Projects -->
+            <div class="section">
+                <h2 class="section-title">KEY PROJECTS</h2>
+                <div class="projects-grid">
+                    <!-- MIM -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>RCT Machine Identification Module (MIM)</h3>
+                            <span class="project-date">Epiroc 2025</span>
+                        </div>
+                        <p>Centralized configuration management platform for industrial control masters using C++17 and gRPC architecture. Implemented automatic device registration and zero-touch deployment reducing commissioning time by 50%.</p>
+                        <div class="project-tech">
+                            <span>C++17</span><span>gRPC</span><span>Protobuf</span><span>gTest</span><span>Ubuntu</span><span>Conan</span><span>Docker</span>
+                        </div>
+                    </div>
+
+                    <!-- LSES -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Life Sphere Safety Project (LSES)</h3>
+                            <span class="project-date">ArisGlobal 2020-23</span>
+                        </div>
+                        <p>Secure electronic system for safety message exchange between regulatory agencies and pharmaceutical companies. Supports ICH E2B and eMDR formats with complete validation and audit capabilities.</p>
+                        <div class="project-tech">
+                            <span>C++11</span><span>Oracle</span><span>XML</span><span>HL7</span><span>Multi-threading</span>
+                        </div>
+                    </div>
+
+                    <!-- Symphony Plus -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Symphony Plus Engineering</h3>
+                            <span class="project-date">ABB 2017-18</span>
+                        </div>
+                        <p>Industrial control system configuration platform for power automation with real-time monitoring capabilities. Enables engineers to configure, secure, commission, and maintain control system components.</p>
+                        <div class="project-tech">
+                            <span>Windows</span><span>C++11</span><span>Catch2</span><span>C#</span><span>WPF</span><span>Python</span><span>PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Trip Optimizer -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Trip Optimizer</h3>
+                            <span class="project-date">Rail Systems 2018-19</span>
+                        </div>
+                        <p>Speed optimization system using IPOPT algorithm reducing fuel consumption in rail operations. Message queue architecture with socket programming for real-time communication.</p>
+                        <div class="project-tech">
+                            <span>C++</span><span>VC++</span><span>Win-Socket</span><span>Win-NT-Embedded</span><span>IPOPT</span>
+                        </div>
+                    </div>
+
+                    <!-- AEON -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>AEON Project</h3>
+                            <span class="project-date">Motorola 2009-10</span>
+                        </div>
+                        <p>PC application for email synchronization during laptop standby mode using data card connectivity. Provides notifications for priority emails and delivers content upon system wake-up.</p>
+                        <div class="project-tech">
+                            <span>Windows/Linux</span><span>C++</span><span>MFC</span><span>VS 6.0</span><span>AT Commands</span>
+                        </div>
+                    </div>
+
+                    <!-- CCA Simulator -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>CCA Simulator</h3>
+                            <span class="project-date">GE 2007-09</span>
+                        </div>
+                        <p>Simulation tool for Trip Optimizer validation with automated trip initialization. Enhanced communication testing with simulated socket connections.</p>
+                        <div class="project-tech">
+                            <span>C++</span><span>MFC</span><span>Win-Socket</span><span>Dialog-based</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hackathon Participation -->
+            <div class="section">
+                <h2 class="section-title">HACKATHON PARTICIPATION</h2>
+                <div class="hackathon-grid">
+                    <div class="hackathon-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;">Automated Regulatory Compliance Scanner</h3>
+                        <p style="color: #666; margin-bottom: 8px;"><i class="fas fa-calendar"></i> ArisGlobal Hackathon 2025</p>
+                        <p>AI-powered tool scanning pharmaceutical documents for FDA/EMA compliance using NLP. Built prototype leveraging Amazon Bedrock and AWS Lambda.</p>
+                        <div class="project-tech" style="margin-top: 10px;">
+                            <span>AWS Bedrock</span><span>Lambda</span><span>Python</span><span>spaCy</span><span>NLTK</span>
+                        </div>
+                    </div>
+
+                    <div class="hackathon-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;">Turbine Predictive Analysis</h3>
+                        <p style="color: #666; margin-bottom: 8px;"><i class="fas fa-calendar"></i> ABB Hackathon 2018</p>
+                        <p>End-to-end solution predicting turbine failures with 92% accuracy using machine learning. Combined Azure ML models with C++ controllers.</p>
+                        <div class="project-tech" style="margin-top: 10px;">
+                            <span>Python</span><span>Azure ML</span><span>C++</span><span>WPF</span><span>.NET</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education & Professional Development -->
+            <div class="section">
+                <h2 class="section-title">EDUCATION & PROFESSIONAL DEVELOPMENT</h2>
+                <div class="education-section">
+                    <div class="edu-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;"><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <p style="font-weight: 600;">B.E. Computer Science</p>
+                        <p style="color: #666;">Periyar University, Tamil Nadu, India</p>
+                        <p style="color: #666;">1999 - 2003</p>
+                    </div>
+
+                    <div class="edu-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;"><i class="fas fa-certificate"></i> Certifications</h3>
+                        <ul class="cert-list">
+                            <li>Modern C++ Specialization (Coursera)</li>
+                            <li>Advanced C++ Programming (Udemy)</li>
+                            <li>C++11/14 Features Masterclass</li>
+                            <li>AWS Cloud Practitioner (In Progress)</li>
+                            <li>Docker Certified Associate (In Progress)</li>
+                        </ul>
+                    </div>
+
+                    <div class="edu-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;"><i class="fas fa-users"></i> Mentorship</h3>
+                        <p>Actively mentor junior and mid-level engineers on system design, coding best practices, and career development. Have mentored <strong>15+ engineers</strong> to senior positions.</p>
+                    </div>
+
+                    <div class="edu-item">
+                        <h3 style="color: #008080; margin-bottom: 10px;"><i class="fas fa-heart"></i> Interests</h3>
+                        <ul class="cert-list">
+                            <li>Chess (strategic thinking)</li>
+                            <li>Technology Blogging</li>
+                            <li>Industrial Photography</li>
+                            <li>Fitness</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #666; font-size: 0.9em;">
+                <p>
+                    <i class="fas fa-envelope"></i> arulmurugan.arch8@gmail.com &nbsp;|&nbsp; 
+                    <i class="fas fa-phone"></i> +91-9742413000 &nbsp;|&nbsp;
+                    <i class="fab fa-linkedin"></i> linkedin.com/in/k-arulmurugan &nbsp;|&nbsp;
+                    <i class="fab fa-github"></i> github.com/iamAK081
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
